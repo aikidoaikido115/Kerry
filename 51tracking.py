@@ -55,12 +55,6 @@ def Get_data_by_tracking(tracking_number,driver):
         # except :
         #     return "Shipment Not Found!"
 
-        '/html/body/div[1]/div[1]/div[6]/div[1]/div[3]/table/tbody/tr/td/div[1]/dl[2]/dd[1]/div[2]/span'
-
-        '/html/body/div[1]/div[1]/div[6]/div[1]/div[3]/table/tbody/tr/td/div[1]/dl[2]/dd[2]/div[2]/span'
-
-        '/html/body/div[1]/div[1]/div[6]/div[1]/div[3]/table/tbody/tr/td/div[1]/dl[2]/dd[3]/div[2]/span'
-
         try:
             status = []
             res = ''
