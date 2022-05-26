@@ -1,6 +1,7 @@
 from selenium import webdriver
 import os
 from bs4 import BeautifulSoup
+import pyautogui as pg
 
 def Get_data_by_tracking(tracking_number,driver):
     driver.get("https://th.kerryexpress.com/th/track/")
@@ -13,8 +14,8 @@ def Get_data_by_tracking(tracking_number,driver):
         
         inputElement = driver.find_element_by_xpath('/html/body/kett-root/kett-search-form/div/div/div/form/div/div[1]/input')
         inputElement.click()
-        inputElement.clear()
-        inputElement.send_keys(tracking_number)
+        time.sleep(0.5)
+        pg.write(tracking_number,interval=0.2)
         button = driver.find_element_by_class_name('ke-btn-search').click()
         time.sleep(2)
         # try:
@@ -56,7 +57,8 @@ def Get_data_by_tracking(tracking_number,driver):
         #     return "Shipment Not Found!"
 
         try:
-            data = driver.find_element_by_xpath('//*[@id="preview_content"]/kett-tracking/kett-tracking-search/div[2]/kett-tracking-item/div/div/div[4]/div[3]/li[1]/div[2]/div[1]/span[1]/span')
+            # data = driver.find_element_by_xpath('//*[@id="preview_content"]/kett-tracking/kett-tracking-search/div[2]/kett-tracking-item/div/div/div[4]/div[3]/li[1]/div[2]/div[1]/span[1]/span')
+            data = driver.find_element_by_xpath('//*[@id="preview_content"]/kett-tracking/kett-tracking-search/div[2]/kett-tracking-item/div/div/div[4]/div[3]')
             soup = BeautifulSoup(data.get_attribute('innerHTML'),'html.parser')
             
             return soup
@@ -65,7 +67,7 @@ def Get_data_by_tracking(tracking_number,driver):
             return "Shipment Not Found!"
 
     
-    except :
+    except:
         return "server not ready Please try agian"
         
         

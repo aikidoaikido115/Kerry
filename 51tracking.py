@@ -1,7 +1,6 @@
 from selenium import webdriver
 import os
 from bs4 import BeautifulSoup
-# import pyautogui as pg
 
 def Get_data_by_tracking(tracking_number,driver):
     driver.get("https://www.51tracking.com/kerryexpress-th-tracking-en")
