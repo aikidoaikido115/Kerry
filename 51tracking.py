@@ -15,7 +15,7 @@ def Get_data_by_tracking(tracking_number,driver):
         time.sleep(0.5)
         inputElement.send_keys(tracking_number)
         button = driver.find_element_by_id('btnSumit').click()
-        time.sleep(15) #นานเหี้ยๆ
+        time.sleep(15) #นาน
         # try:
         #     data = driver.find_element_by_xpath('/html/body/div[3]/div')
         #     คาดว่าจะถึงวันที่ = driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div/div/div/div[1]/div[1]/div[2]')
